@@ -1,4 +1,4 @@
-package com.example.covid19tracker
+package com.martsoft.covid19tracker
 
 import android.os.Bundle
 import io.flutter.app.FlutterActivity
