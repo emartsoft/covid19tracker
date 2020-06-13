@@ -26,7 +26,7 @@ $ cd covid19tracker/
 If using Android Studio:
 Click Get dependencies to install the packages.
 
-If using Android Studio Code run this command:
+If using Visual Studio Code run this command:
 ```sh
 flutter packages get
 ```
