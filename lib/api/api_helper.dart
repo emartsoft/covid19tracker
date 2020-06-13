@@ -6,5 +6,5 @@ class ApiHelper {
   final String baseUrlMain = "https://corona.lmao.ninja/v2";
   final String baseUrlHistory = "https://corona.lmao.ninja/v2/historical";
   final String newsUrlMain = "https://newsapi.org/v2";
-  final String newsApiKey = "dbf1e44ff1e04221b4bd0fffbe0e194c";
+  final String newsApiKey = "";
 }
