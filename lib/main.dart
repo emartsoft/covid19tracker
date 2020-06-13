@@ -1,16 +1,32 @@
 import 'package:covid19tracker/helpers/colors.dart';
+import 'package:covid19tracker/providers/AllCasesProvider.dart';
+import 'package:covid19tracker/providers/CoronaCasesProvider.dart';
 import 'package:covid19tracker/screens/CaseMap.dart';
 import 'package:covid19tracker/screens/GlobalCases.dart';
 import 'package:covid19tracker/screens/HomePage.dart';
 import 'package:covid19tracker/screens/NewsPage.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AllCasesProvider()),
+        ChangeNotifierProvider(create: (_) => CoronaCasesProvider()),
+        ChangeNotifierProvider(create: (_) => TopCasesProvider()),
+      ],
+      child: DevicePreview(
+        enabled: false,
+        builder: (context) => MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +38,7 @@ class MyApp extends StatelessWidget {
       title: 'Covid-19',
       theme: ThemeData(
         primaryColor: BackgroundColor,
-        textTheme: GoogleFonts.rajdhaniTextTheme(
+        textTheme: GoogleFonts.dmSansTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
@@ -62,7 +78,8 @@ class _MainEntryPageState extends State<MainEntryPage> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25), topRight: Radius.circular(25),),
           boxShadow: [
             BoxShadow(
               spreadRadius: -10,
@@ -74,15 +91,17 @@ class _MainEntryPageState extends State<MainEntryPage> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
             child: GNav(
               gap: 3,
               activeColor: Colors.white,
               color: Colors.white,
+              backgroundColor: BackgroundColor,
               iconSize: 25,
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 6),
               duration: Duration(milliseconds: 800),
               tabBackgroundColor: Colors.pink,
+              tabMargin: EdgeInsets.symmetric(horizontal: 0, vertical: 5),
               tabs: [
                 GButton(
                   icon: FontAwesomeIcons.home,

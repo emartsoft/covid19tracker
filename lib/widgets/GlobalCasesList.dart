@@ -94,15 +94,15 @@ class _GlobalCasesListState extends State<GlobalCasesList> {
                             Icons.search,
                             color: Colors.grey,
                           ),
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              _controller.clear();
-                            },
-                            child: Icon(
-                              Icons.cancel,
-                              color: Colors.grey,
-                            ),
-                          ),
+                          // suffixIcon: GestureDetector(
+                          //   onTap: () {
+                          //     _controller.clear();
+                          //   },
+                          //   child: Icon(
+                          //     Icons.cancel,
+                          //     color: Colors.grey,
+                          //   ),
+                          // ),
                         ),
                         onChanged: (text) {
                           setState(
@@ -147,13 +147,14 @@ class _GlobalCasesListState extends State<GlobalCasesList> {
                                           ).animate(
                                             CurvedAnimation(
                                               parent: anim,
-                                              curve: Curves.fastOutSlowIn,
+                                              curve: Curves.elasticIn,
                                             ),
                                           ),
                                           child: child,
                                         ),
-                                        transitionDuration:
-                                            Duration(milliseconds: 500),
+                                        transitionDuration: Duration(
+                                          milliseconds: 500,
+                                        ),
                                       ),
                                     );
                                   },
@@ -166,11 +167,12 @@ class _GlobalCasesListState extends State<GlobalCasesList> {
                                     shadowColor: Colors.white,
                                     child: ListTile(
                                       leading: CircleAvatar(
+                                        backgroundColor: Colors.white,
                                         backgroundImage: AssetImage((cases
                                                     .countryInfo?.iso2 !=
                                                 null)
                                             ? 'assets/flags/${cases.countryInfo?.iso2?.toLowerCase()}.png'
-                                            : 'assets/pin.png'),
+                                            : 'assets/covid19icon.png'),
                                       ),
                                       title: Text(
                                         cases.country,
@@ -182,11 +184,13 @@ class _GlobalCasesListState extends State<GlobalCasesList> {
                                       subtitle: Text(
                                         "Confirmed Cases : " +
                                             nf.format(cases.cases).toString(),
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
                                       ),
                                       trailing: IconButton(
                                         icon: Icon(
-                                          FontAwesomeIcons.arrowAltCircleRight,
+                                          FontAwesomeIcons.chevronCircleRight,
                                           color: Colors.white,
                                         ),
                                         iconSize: 31,
@@ -212,8 +216,9 @@ class _GlobalCasesListState extends State<GlobalCasesList> {
                                                 ),
                                                 child: child,
                                               ),
-                                              transitionDuration:
-                                                  Duration(milliseconds: 500),
+                                              transitionDuration: Duration(
+                                                milliseconds: 500,
+                                              ),
                                             ),
                                           );
                                         },

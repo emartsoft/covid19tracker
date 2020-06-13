@@ -6,7 +6,7 @@ import 'package:covid19tracker/providers/NewsProvider.dart';
 import 'package:covid19tracker/widgets/LoadingFooter.dart';
 import 'package:covid19tracker/widgets/NewsItem.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class NewsPage extends StatefulWidget {
   @override
@@ -116,7 +116,7 @@ class _NewsPageState extends State<NewsPage>
             title: Text('Covid-19 News'),
           ),
           body: SafeArea(
-                      child: RefreshIndicator(
+            child: RefreshIndicator(
               onRefresh: _onRefresh,
               child: ListView.builder(
                   itemCount: _articles.length + 1,
@@ -141,8 +141,15 @@ class _NewsPageState extends State<NewsPage>
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => SafeArea(
-                                      child: WebView(
+                                      child: InAppWebView(
                                         initialUrl: '${_articles[index].url}',
+                                        initialOptions:
+                                            InAppWebViewWidgetOptions(
+                                          inAppWebViewOptions:
+                                              InAppWebViewOptions(
+                                            debuggingEnabled: false,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

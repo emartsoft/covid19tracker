@@ -31,7 +31,10 @@ class NewsItem extends StatelessWidget {
         child: FadeInImage.assetNetwork(
           image: '${news.urlToImage}',
           fit: BoxFit.fitWidth,
-          placeholder: 'assets/pin.png',
+          placeholder: 'assets/covid19icon.png',
+          placeholderCacheHeight: 100,
+          placeholderCacheWidth: 100,
+          placeholderScale: 0.5,
         ),
       ),
     ));

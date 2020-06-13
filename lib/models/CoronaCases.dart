@@ -20,6 +20,8 @@ class CoronaCases {
   DateTime updated;
   double tests;
   double testsPerOneMillion;
+  double population;
+  String continent;
 
   CoronaCases({
     this.country,
@@ -36,6 +38,8 @@ class CoronaCases {
     this.updated,
     this.tests,
     this.testsPerOneMillion,
+    this.population,
+    this.continent,
   });
 
   factory CoronaCases.fromMap(Map<String, dynamic> json) => CoronaCases(
@@ -64,6 +68,10 @@ class CoronaCases {
         testsPerOneMillion: json["testsPerOneMillion"] == null
             ? null
             : double.parse(json["testsPerOneMillion"].toString()),
+        population: json["population"] == null
+            ? null
+            : double.parse(json["population"].toString()),
+        continent: json["continent"] == null ? null : json["continent"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -84,6 +92,10 @@ class CoronaCases {
         "tests": tests == null ? null : tests,
         "testsPerOneMillion":
             testsPerOneMillion == null ? null : testsPerOneMillion,
+        "population":
+            population == null ? null : population,
+        "continent":
+            continent == null ? null : continent,
       };
 }
 
