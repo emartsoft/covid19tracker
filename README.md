@@ -1,4 +1,4 @@
-https://api.codemagic.io/apps/5ee6763aac49996233aa71ee/5ee6763aac49996233aa71ed/status_badge.svg
+[![Codemagic build status](https://api.codemagic.io/apps/5ee6763aac49996233aa71ee/5ee6763aac49996233aa71ed/status_badge.svg)](https://codemagic.io/apps/5ee6763aac49996233aa71ee/5ee6763aac49996233aa71ed/latest_build)
 
 # Covid-19 Tracker Overview
 The coronavirus disease 2019 (COVID-19) is an infectious disease caused by a type of coronavirus known as SARS-CoV-2 that had caused an ongoing pandemic. This app gives an overview of the cases and other related information.
